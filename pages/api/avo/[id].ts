@@ -1,4 +1,4 @@
-import DB from "../../../database/db"
+import DB from "@database/db"
 import { NextApiRequest, NextApiResponse } from "next";
 
 const singleAvo = async (req: NextApiRequest, res: NextApiResponse) => {
