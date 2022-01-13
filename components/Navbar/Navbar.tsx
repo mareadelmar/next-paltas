@@ -15,7 +15,11 @@ const Navbar = () => {
 			</nav> */}
 			<div className={styles.logoContainer}>
 				<img src="/images/avocado.png" alt="logo" className={styles.img}/>
-				<h1 className={styles.title}>avos</h1>
+				<Link href="/">
+					<a>
+						<h1 className={styles.title}>avos</h1>
+					</a>
+				</Link>
 			</div>
 			<div className={styles.cartContainer}>
 				<p>carrito</p>

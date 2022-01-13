@@ -6,8 +6,12 @@
 
 .logoContainer {
 	flex: 1;
-	display: flex;
 	margin-left: 0.75em;
+	display: flex;
+}
+
+.logoContainer a {
+	text-decoration: none;
 }
 
 .img {
