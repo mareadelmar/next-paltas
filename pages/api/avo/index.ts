@@ -8,8 +8,10 @@ const allAvos = async (req: IncomingMessage, res: ServerResponse) => {
 
     const allEntries = await db.getAll();
     const length = allEntries.length;
-    res.setHeader("Content-type", "application/json")
-    res.status(200).json({data: allEntries, length: length})
+    res.setHeader("Content-type", "application/json");
+    res.statusCode = 200;
+
+    res.end(JSON.stringify({data: allEntries, length: length}))
 }
 
 export default allAvos;

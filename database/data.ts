@@ -126,5 +126,5 @@ const data: Record<TProductId, TProduct> = {
       },
     },
   }
-  
   export default data
+  
