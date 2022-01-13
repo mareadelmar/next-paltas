@@ -1,0 +1,22 @@
+.container {
+	width: 300px;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0.5px 1px 7px lightgray;
+	margin: 2em;
+	cursor: pointer;
+}
+
+.img {
+	width: 260px;
+	height: 380px;
+	object-fit: contain;
+}
+
+.title {
+	margin: 1em;
+	font-size: 16px;
+	text-transform: uppercase;
+}
