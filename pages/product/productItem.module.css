@@ -1,0 +1,29 @@
+.container {
+	min-height: 86vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	*justify-content: center;
+}
+
+.title {
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.text {
+	width: 60ch;
+	font-size: 16px;
+	margin: 2em 0;
+	line-height: 1.5;
+}
+
+.btn {
+	background-color: #00b168;
+	border: 0;
+	width: 50%;
+	padding: 0.5rem;
+	color: white;
+	font-weight: bolder;
+	cursor: pointer;
+}
