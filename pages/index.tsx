@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import styles from "../styles/home.module.css";
+import Card from "@components/Card/Card";
 
 const Home = () => {
 	const [products, setProducts] = useState<TProduct[]>([]);
@@ -12,10 +14,9 @@ const Home = () => {
 	}, [])
 
 	return (
-		<div>
-			<h1>hola mundo</h1>
+		<div className={styles.container}>
 			{products.map(item => (
-				<div key={item.id}>{item.name}</div>
+				<Card key={item.id} {...item}/>
 			))}
 		</div>
 	);
