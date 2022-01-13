@@ -5,7 +5,7 @@
 	flex-direction: column;
 	align-items: center;
 	box-shadow: 0.5px 1px 7px lightgray;
-	margin: 2em;
+	margin: 1rem;
 	cursor: pointer;
 }
 
@@ -16,7 +16,18 @@
 }
 
 .title {
-	margin: 1em;
+	margin: 1rem;
 	font-size: 16px;
 	text-transform: uppercase;
+	color: #00b269;
+}
+
+.price {
+	text-align: right;
+	font-size: 16px;
+	width: 100%;
+}
+
+.price p {
+	margin: 2rem;
 }
