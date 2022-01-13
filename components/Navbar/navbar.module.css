@@ -1,0 +1,27 @@
+.container {
+	display: flex;
+	align-items: center;
+}
+
+.logoContainer {
+	flex: 1;
+	display: flex;
+	margin-left: 0.75em;
+}
+
+.img {
+	width: 60px;
+	margin-right: 0.5em;
+	object-fit: contain;
+}
+
+.title {
+	color: #333;
+}
+
+.cartContainer {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 0.75em;
+}
