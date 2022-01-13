@@ -1,0 +1,8 @@
+.container {
+	min-height: 90vh;
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 2rem 0;
+}
