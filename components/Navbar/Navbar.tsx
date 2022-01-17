@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState} from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { Icon } from '@iconify/react';
 
 const Navbar = () => {
+	const [cartCount, setCartCount] = useState<Number>(0);
+
 	return (
 		<div className={styles.container}>
 			{/* <nav className={styles.box}>
@@ -22,7 +25,8 @@ const Navbar = () => {
 				</Link>
 			</div>
 			<div className={styles.cartContainer}>
-				<p>carrito</p>
+				<Icon icon="emojione-monotone:shopping-cart" className={styles.icon}/>
+				<p>Carrito({cartCount})</p>
 			</div>
 		</div>
 	);

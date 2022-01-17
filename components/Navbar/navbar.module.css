@@ -1,7 +1,8 @@
 .container {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	align-items: center;
+	*box-shadow: 0 6px 5px rgba(0, 0, 0, 0.05);
 }
 
 .logoContainer {
@@ -28,5 +29,16 @@
 	flex: 1;
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 	padding-right: 0.75em;
+}
+
+.icon {
+	font-size: 32px;
+	margin-right: 0.5rem;
+	color: #fd6229;
+}
+
+.cartContainer p {
+	font-size: 16px;
 }
