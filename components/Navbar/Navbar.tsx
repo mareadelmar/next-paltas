@@ -6,7 +6,8 @@ import { CartContext } from "context/CartContext";
 
 const Navbar = () => {
 	const { cartItems } = useContext(CartContext)
-	
+
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.logoContainer}>
@@ -18,8 +19,12 @@ const Navbar = () => {
 				</Link>
 			</div>
 			<div className={styles.cartContainer}>
-				<Icon icon="emojione-monotone:shopping-cart" className={styles.icon}/>
-				<p>Carrito({cartItems.length})</p>
+				<Link href={"/cart"} >
+					<a>
+						<Icon icon="emojione-monotone:shopping-cart" className={styles.icon}/>
+						Carrito({cartItems.length})
+					</a>
+				</Link>
 			</div>
 		</div>
 	);
