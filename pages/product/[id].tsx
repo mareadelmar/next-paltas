@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { useRouter } from "next/router";
 import styles from "./productItem.module.css";
+import Loader from "@components/Loader/Loader";
+
 
 const ProductItem = ()  => {
 	const {query: { id}} = useRouter();
@@ -17,7 +19,7 @@ const ProductItem = ()  => {
 		console.log("agregar al carrito")
 	}
 
-	if(!avo) return <p>Cargando...</p>
+	if(!avo) return <Loader />;
 	return (
 		<div className={styles.container}>
 			<h2 className={styles.title}>{avo?.name}</h2>
