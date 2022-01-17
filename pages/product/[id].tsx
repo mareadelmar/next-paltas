@@ -4,14 +4,14 @@ import styles from "./productItem.module.css";
 
 const ProductItem = ()  => {
 	const {query: { id}} = useRouter();
-	const [avo, setAvo] = useState<TProduct>()
+	const [avo, setAvo] = useState<TProduct>();
 	console.log(avo)
 
 	useEffect(() => {
 		window.fetch(`/api/avo/${id}`)
 			.then(res => res.json())
 			.then(setAvo)
-	}, [])
+	}, [id])
 
 	const handleAddToCart = () => {
 		console.log("agregar al carrito")

@@ -1,5 +1,5 @@
 .container {
-	*height: 100%;
+	min-height: 90vh;
 	width: 80%;
 	display: flex;
 	flex-wrap: wrap;
