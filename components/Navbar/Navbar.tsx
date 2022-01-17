@@ -1,21 +1,14 @@
-import React, { useState} from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import { Icon } from '@iconify/react';
+import { CartContext } from "context/CartContext";
 
 const Navbar = () => {
-	const [cartCount, setCartCount] = useState<Number>(0);
-
+	const { cartItems } = useContext(CartContext)
+	
 	return (
 		<div className={styles.container}>
-			{/* <nav className={styles.box}>
-				<Link href='/'>
-					<a>Home</a>
-				</Link>
-				<Link href='/about'>
-					<a>About</a>
-				</Link>
-			</nav> */}
 			<div className={styles.logoContainer}>
 				<img src="/images/avocado.png" alt="logo" className={styles.img}/>
 				<Link href="/">
@@ -26,7 +19,7 @@ const Navbar = () => {
 			</div>
 			<div className={styles.cartContainer}>
 				<Icon icon="emojione-monotone:shopping-cart" className={styles.icon}/>
-				<p>Carrito({cartCount})</p>
+				<p>Carrito({cartItems.length})</p>
 			</div>
 		</div>
 	);

@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { useRouter } from "next/router";
 import styles from "./productItem.module.css";
 import Loader from "@components/Loader/Loader";
+import {CartContext} from "../../context/CartContext"
 
 
 const ProductItem = ()  => {
 	const {query: { id}} = useRouter();
 	const [avo, setAvo] = useState<TProduct>();
-	console.log(avo)
+	const { setCartItems } = useContext(CartContext)
 
 	useEffect(() => {
 		window.fetch(`/api/avo/${id}`)
@@ -16,7 +17,7 @@ const ProductItem = ()  => {
 	}, [id])
 
 	const handleAddToCart = () => {
-		console.log("agregar al carrito")
+		setCartItems((prev) => [...prev, avo]);
 	}
 
 	if(!avo) return <Loader />;
