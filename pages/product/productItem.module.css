@@ -1,5 +1,6 @@
 .container {
 	min-height: 86vh;
+	max-width: 400px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -12,7 +13,7 @@
 }
 
 .text {
-	width: 60ch;
+	width: 90%;
 	font-size: 16px;
 	margin: 2em 0;
 	line-height: 1.5;
@@ -26,4 +27,10 @@
 	color: white;
 	font-weight: bolder;
 	cursor: pointer;
+}
+
+@media only screen and (min-width: 992px) {
+	.container {
+		max-width: 620px;
+	}
 }
