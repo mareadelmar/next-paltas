@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import styles from "../styles/cart.module.css";
 import { CartContext } from 'context/CartContext';
 import Loader from '@components/Loader/Loader';
+import CartItem from '@components/CartItem/CartItem';
 
 const Cart = () => {
     const { cartItems } = useContext(CartContext);
@@ -17,14 +18,7 @@ const Cart = () => {
             {
                 cartItems.length > 0 ?
                 cartItems.map((item) => {
-                    return <div className={styles.cartItem} key={item.id}>
-                        <img src={item.image} alt={item.name} />
-                        <div>
-                            <p id={styles.title}>{item.name}</p>
-                            <p><strong>Cantidad: </strong>{item.quantity}</p>
-                            <p><strong>Price: </strong>{item.price}</p>
-                        </div>
-                    </div>
+                    return <CartItem {...item}/>
                 })
                 : <p className={styles.emptyMsn}>Aún no tienes elementos en el carrito</p>
             }
@@ -38,4 +32,4 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Cart;

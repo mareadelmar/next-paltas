@@ -1,0 +1,28 @@
+.cartItem {
+	width: 90%;
+	height: 280px;
+	margin: 1rem 0;
+	box-shadow: 0 6px 5px rgba(0, 0, 0, 0.05);
+	display: flex;
+	align-items: center;
+}
+
+.cartItem img {
+	width: 240px;
+	object-fit: contain;
+}
+
+#title {
+	color: #00b269;
+	font-weight: bolder;
+	font-size: 20px;
+}
+
+.cartItem > div {
+	margin: 0 1rem;
+}
+
+.cartItem p {
+	*padding: 1rem 0;
+	font-size: 16px;
+}
