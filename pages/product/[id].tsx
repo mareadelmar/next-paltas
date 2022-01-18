@@ -3,25 +3,27 @@ import { useRouter } from "next/router";
 import styles from "./productItem.module.css";
 import Loader from "@components/Loader/Loader";
 import {CartContext} from "../../context/CartContext"
-
+import fetch from "isomorphic-unfetch";
 
 const ProductItem = ()  => {
 	const {query: { id}} = useRouter();
-	const [avo, setAvo] = useState<TProduct>();
-	const { setCartItems } = useContext(CartContext);
+	const [avo, setAvo] = useState<TProductDB>();
+	const { cartItems, setCartItems } = useContext(CartContext);
 	const [ quantity, setQuantity ] = useState(1)
 
 	useEffect(() => {
-		window.fetch(`/api/avo/${id}`)
+		fetch(`/api/avo/${id}`)
 			.then(res => res.json())
-			.then(setAvo)
+			.then(setAvo);
 	}, [id])
 
 	const handleAddToCart = () => {
 		if(quantity === 0 ) return;
-		const newItem = {
-			...avo,
-			quantity
+		const newItem = { ...avo, quantity };
+
+		if(cartItems.some((item) => item.id === id)){
+			cartItems.map(item => item.quantity++);
+			return;
 		}
 		setCartItems((prev) => [...prev, newItem]);
 	}
