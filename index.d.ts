@@ -25,6 +25,16 @@ type TProduct = {
   attributes: TProductAttributes
 }
 
+type TProductDB = {
+  id: TProductId
+  name: string
+  sku: string
+  price: number
+  image: Url
+  attributes: TProductAttributes
+  quantity: number
+}
+
 type TAPIAVODetailResponse = TProduct
 
 type TAPIAvoResponse = {
