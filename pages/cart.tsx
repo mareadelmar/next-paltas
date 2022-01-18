@@ -7,7 +7,7 @@ const Cart = () => {
     const { cartItems } = useContext(CartContext);
     
     const getTotal = () => {
-        return cartItems.reduce((total:number, item:TProduct) => total + item.price, 0);
+        return cartItems.reduce((total:number, item) => total + item.price * item.quantity, 0);
     }
 
     if(!cartItems) return <Loader />
@@ -16,16 +16,12 @@ const Cart = () => {
             <h1>Carrito</h1>
             {
                 cartItems.length > 0 ?
-                cartItems.map((item:TProduct) => {
+                cartItems.map((item) => {
                     return <div className={styles.cartItem} key={item.id}>
                         <img src={item.image} alt={item.name} />
                         <div>
-                            <p className={styles.title}>{item.name}</p>
-                            <ul>
-                                <li><strong>Hardiness: </strong>{item.attributes.hardiness}</li>
-                                <li><strong>Shape: </strong>{item.attributes.shape}</li>
-                                <li><strong>Taste: </strong>{item.attributes.taste}</li>
-                            </ul>
+                            <p id={styles.title}>{item.name}</p>
+                            <p><strong>Cantidad: </strong>{item.quantity}</p>
                             <p><strong>Price: </strong>{item.price}</p>
                         </div>
                     </div>

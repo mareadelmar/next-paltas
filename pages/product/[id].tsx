@@ -8,7 +8,8 @@ import {CartContext} from "../../context/CartContext"
 const ProductItem = ()  => {
 	const {query: { id}} = useRouter();
 	const [avo, setAvo] = useState<TProduct>();
-	const { setCartItems } = useContext(CartContext)
+	const { setCartItems } = useContext(CartContext);
+	const [ quantity, setQuantity ] = useState(1)
 
 	useEffect(() => {
 		window.fetch(`/api/avo/${id}`)
@@ -17,7 +18,21 @@ const ProductItem = ()  => {
 	}, [id])
 
 	const handleAddToCart = () => {
-		setCartItems((prev) => [...prev, avo]);
+		if(quantity === 0 ) return;
+		const newItem = {
+			...avo,
+			quantity
+		}
+		setCartItems((prev) => [...prev, newItem]);
+	}
+
+	const handleQuantity = (type) => {
+		if(type === "remove") {
+			if(quantity === 0) return;
+			setQuantity(prev => prev - 1)
+			return;
+		}
+		setQuantity(prev => prev + 1);
 	}
 
 	if(!avo) return <Loader />;
@@ -27,6 +42,19 @@ const ProductItem = ()  => {
 			<img src={avo?.image} alt={avo?.name} />
 			<div className={styles.text}>
 				<p><strong>Description: </strong> {avo?.attributes.description}</p>
+				<ul>
+                    <li><strong>Hardiness: </strong>{avo?.attributes.hardiness}</li>
+                    <li><strong>Shape: </strong>{avo?.attributes.shape}</li>
+                    <li><strong>Taste: </strong>{avo?.attributes.taste}</li>
+                </ul>
+				<div className={styles.quantityBox}>
+					<span id={styles.quantityText}>Cantidad:</span>
+					<div className={styles.quantityBox}>
+						<span onClick={() => handleQuantity("remove")}> - </span>
+						<span id={styles.quantity}>{quantity}</span>
+						<span onClick={() => handleQuantity("add")}> + </span>
+					</div>
+				</div>
 				<p><strong>Price: </strong>{avo?.price}</p>
 			</div>
 			<button onClick={handleAddToCart} className={styles.btn}>ADD TO CART</button>
