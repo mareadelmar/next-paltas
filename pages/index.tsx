@@ -1,18 +1,20 @@
-import React, {useState, useEffect} from "react";
 import styles from "../styles/home.module.css";
 import Card from "@components/Card/Card";
+import fetch from "isomorphic-unfetch";
 
-const Home = () => {
-	const [products, setProducts] = useState<TProduct[]>([]);
+export const getServerSideProps = async () => {
+	const res = await fetch("https://paltitastore.vercel.app/api/avo");
+	const { data: products }:TAPIAvoResponse = await res.json();
 
-	useEffect(() => {
-		window.fetch("/api/avo")
-			.then(res => res.json())
-			.then(({data}) => {
-				setProducts(data);
-			})
-	}, [])
+	return {
+		props: {
+			// props que espera el componente
+			products
+		}
+	}
+}
 
+const Home = ({products}:{products:TProduct[]}) => {
 	return (
 		<div className={styles.container}>
 			{products.map(item => (
